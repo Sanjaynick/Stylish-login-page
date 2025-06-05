@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sub-container" id="sub-container">
+            <div class="login-content" id="login-content">
+                <form onsubmit="return formValidation()">
+                <h3>LOG IN</h3>
+                
+                <input type="text" placeholder="Enter Email" id="email" required>
+                <input type="password" placeholder="Enter Password" required>
+                <h3><a href="#">Forgot Password</a></h3>
+                <button type="submit">Log In</button>
+                </form>
+            </div>
+
+            <div class="signin-content" id="signin-content">
+                <form onsubmit="return formValidationSecond()">
+                <h3>SIGN IN</h3>
+                
+                <input type="text" placeholder="Enter User Name" class="user-name" id="user-name" required>
+                <input type="text" placeholder="Enter Email"  class="user-email" id="user-email" required>
+                <input type="password" placeholder="Enter New Password" class="user-password" id="user-password" required>
+                <input type="password" placeholder="Reenter New Password" class="new-password" id="new-password" required>
+                <button type="submit">Sign In</button>
+                </form>
+            </div>
+        </div>
+        <div class="slider" id="slider">
+            <h2 class="greating">Hi There !</h2>
+            <h2 class="account">Don't have an Account</h2>
+            <button class="sign-btn" id="sign-btn" onclick="changeSlider()"></button>
+            <p class="error-message" id="error-message"></p>
+         </div>
+
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
