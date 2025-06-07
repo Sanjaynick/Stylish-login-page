@@ -222,7 +222,7 @@ body{
 
                         /* Responsive Starts Here */
 
-@media screen and (max-width : 375px){
+@media screen and (max-width : 500px){
     
     body{
     background-color: aqua;

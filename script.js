@@ -129,14 +129,14 @@ var word = document.getElementById("word");
  let loginMessageAdded = false;
 
 function adding(){
-    if(window.innerWidth <= 375 && !loginMessageAdded){  
+    if(window.innerWidth <= 500 && !loginMessageAdded){  
         p.innerHTML = `Don't have an account ` ;
         span.innerHTML = `SignIn`;
         word.appendChild(p);
         word.appendChild(span);
           loginMessageAdded = true;
     }
-    else if(window.innerWidth > 375 && loginMessageAdded){
+    else if(window.innerWidth > 500 && loginMessageAdded){
           var newPara = document.getElementById("new-p");
           var newSpan = document.getElementById("login-span");
         if(newPara && newSpan){   
