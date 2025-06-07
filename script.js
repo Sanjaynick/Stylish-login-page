@@ -163,14 +163,14 @@ function adding(){
  let messageAdded = false;
 
 function addingFlip(){
-    if(window.innerWidth <= 375 && !messageAdded){  
+    if(window.innerWidth <= 500 && !messageAdded){  
         pa.innerHTML = `Already have an account ` ;
         spans.innerHTML = `Log In`;
         words.appendChild(pa);
         words.appendChild(spans);
           messageAdded = true;
     }
-    else if(window.innerWidth > 375 && messageAdded){
+    else if(window.innerWidth > 500 && messageAdded){
           var newParas = document.getElementById("new-pa");
           var newSpans = document.getElementById("signin-span");
         if(newParas && newSpans){   
