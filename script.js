@@ -8,6 +8,7 @@ var aboutAccount = document.querySelector('.account');
 var inputClear = document.querySelectorAll('input');
 var email = document.getElementById('email');
 var errorMessage = document.getElementById('error-message');
+var errorMsg = document.getElementById('error-msg-2');
 var userName = document.getElementById('user-name');
 var userEmail = document.getElementById('user-email');
 var userPassword = document.getElementById('user-password');
@@ -16,6 +17,11 @@ var container = document.getElementById("container");
 
 function showError(){
     errorMessage.style.display = 'block';
+   
+}
+
+function showErrorMsg(){
+     errorMsg.style.display = 'block';
 }
 
  sliderBtn.textContent = "Sign In";
@@ -59,44 +65,58 @@ function changeSlider(){
 var emailCheck = /^[^ ]+@[^ ]+\.[a-z]{2,}$/i;
 
 function formValidation(){
-if(!emailCheck.test(email.value.trim())){
+    if(email.value == ''){
+        errorMsg.style.display = 'none';
+    }
+else if(!emailCheck.test(email.value.trim())){
     errorMessage.textContent = "Please Enter Valid Email !";
+    errorMsg.textContent = "Please Enter Valid Email !";
     showError()
+    showErrorMsg();
     allClear();
     return false;
 }
 else{
     errorMessage.textContent = '';
+    errorMsg.textContent = '';
     alert("You Logged In Successfully");
     allClear()
 } 
 }
 
-var emailCheck = /^[^ ]+@[^ ]+\.[a-z]{2,}$/i;
+// var emailCheck = /^[^ ]+@[^ ]+\.[a-z]{2,}$/i;
 
 function formValidationSecond(){
 
     if(userName.value.trim().length < 3){
     errorMessage.textContent = "Please Enter Name More than 3 letters";
-    showError()
+    errorMsg.textContent = "Please Enter Name More than 3 letters"
+    showError();
+    showErrorMsg();
     return false;
 }
 
     if(!emailCheck.test(userEmail.value.trim())){
     errorMessage.textContent = "Please Enter Valid Email !";
-    showError()
+    errorMsg.textContent = "Please Enter Valid Email !"
+    showError();
+    showErrorMsg();
     return false;
 }
 
 if(userPassword.value.trim().length < 6){
     errorMessage.textContent = "Password Must Contain 6 Letters";
-    showError()
+    errorMsg.textContent = "Password Must Contain 6 Letters"
+    showError();
+    showErrorMsg();
     return false;
 }
 
 if(userPassword.value.trim() != newPassword.value.trim()){
     errorMessage.textContent = "Password Not Match";
-    showError()
+    errorMsg.textContent = "Password Not Match";
+    showError();
+    showErrorMsg();
     return false;
 }
     errorMessage.textContent = '';
@@ -135,6 +155,7 @@ function adding(){
         word.appendChild(p);
         word.appendChild(span);
           loginMessageAdded = true;
+          formValidation();
     }
     else if(window.innerWidth > 500 && loginMessageAdded){
           var newPara = document.getElementById("new-p");
@@ -143,6 +164,7 @@ function adding(){
             newPara.remove();
             newSpan.remove();
                loginMessageAdded = false;
+               formValidationSecond();
         }
     }
     }

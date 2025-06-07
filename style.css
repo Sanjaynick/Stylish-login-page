@@ -229,6 +229,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 100vh;
 }
     .container{
@@ -299,6 +300,15 @@ body{
     display: grid;
     align-items: center;
     justify-content: center;
+}
+
+#error-msg-2{
+  background-color: red;
+  padding: 0 30px;
+  color: white;
+  border-radius: 10px;
+  margin: 20px;
+  display: none;
 }
 
 
