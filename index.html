@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="container">
         <div class="sub-container" id="sub-container">
             <div class="login-content" id="login-content">
                 <form onsubmit="return formValidation()">
@@ -16,7 +16,9 @@
                 <input type="text" placeholder="Enter Email" id="email" required>
                 <input type="password" placeholder="Enter Password" required>
                 <h3><a href="#">Forgot Password</a></h3>
+                <div class="word" id="word"></div>
                 <button type="submit">Log In</button>
+                
                 </form>
             </div>
 
@@ -28,6 +30,7 @@
                 <input type="text" placeholder="Enter Email"  class="user-email" id="user-email" required>
                 <input type="password" placeholder="Enter New Password" class="user-password" id="user-password" required>
                 <input type="password" placeholder="Reenter New Password" class="new-password" id="new-password" required>
+                <div class="words" id="words"></div>
                 <button type="submit">Sign In</button>
                 </form>
             </div>
@@ -41,6 +44,14 @@
 
     </div>
 
+    <!-- <button class="rotate" id="rotate" onclick="containerRotate()">Rotate</button> -->
+
     <script src="./script.js"></script>
 </body>
 </html>
+
+
+
+
+
+<!-- <span class="responsive-signin" id="responsive-signin">Sign In</span> -->

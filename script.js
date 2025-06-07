@@ -12,6 +12,7 @@ var userName = document.getElementById('user-name');
 var userEmail = document.getElementById('user-email');
 var userPassword = document.getElementById('user-password');
 var newPassword = document.getElementById('new-password');
+var container = document.getElementById("container");
 
 function showError(){
     errorMessage.style.display = 'block';
@@ -103,5 +104,110 @@ if(userPassword.value.trim() != newPassword.value.trim()){
     allClear();
     return true;
     
-
 }
+
+                        // Script For Responsive mobile screen 
+
+// var container = document.getElementById("container");
+// var rotate = document.getElementById("rotate");
+
+// function containerRotate(){
+//         container.classList.toggle('flip');
+//          signInContainer.style.display = 'grid';
+//         logInContainer.style.display = 'grid';
+//         // container.style.height = '350px';
+
+// }
+
+        //   Adding p tag to login page
+
+var word = document.getElementById("word");
+ var p = document.createElement('p');
+ var span = document.createElement('span');
+ p.id = 'new-p';
+ span.id = 'login-span';
+ let loginMessageAdded = false;
+
+function adding(){
+    if(window.innerWidth <= 375 && !loginMessageAdded){  
+        p.innerHTML = `Don't have an account ` ;
+        span.innerHTML = `SignIn`;
+        word.appendChild(p);
+        word.appendChild(span);
+          loginMessageAdded = true;
+    }
+    else if(window.innerWidth > 375 && loginMessageAdded){
+          var newPara = document.getElementById("new-p");
+          var newSpan = document.getElementById("login-span");
+        if(newPara && newSpan){   
+            newPara.remove();
+            newSpan.remove();
+               loginMessageAdded = false;
+        }
+    }
+    }
+
+  window.addEventListener('resize', adding);
+  window.addEventListener('load', adding);
+
+
+                    // Adding p and span tag to sign in page
+
+
+
+  var words = document.getElementById("words");
+ var pa = document.createElement('p');
+ var spans = document.createElement('span');
+ pa.id = 'new-pa';
+ spans.id = 'signin-span';
+ let messageAdded = false;
+
+function addingFlip(){
+    if(window.innerWidth <= 375 && !messageAdded){  
+        pa.innerHTML = `Already have an account ` ;
+        spans.innerHTML = `Log In`;
+        words.appendChild(pa);
+        words.appendChild(spans);
+          messageAdded = true;
+    }
+    else if(window.innerWidth > 375 && messageAdded){
+          var newParas = document.getElementById("new-pa");
+          var newSpans = document.getElementById("signin-span");
+        if(newParas && newSpans){   
+            newParas.remove();
+            newSpans.remove();
+               messageAdded = false;
+        }
+    }
+    }
+
+  window.addEventListener('resize', addingFlip);
+  window.addEventListener('load', addingFlip);
+
+
+
+                    // Flip to Signin page in responsive design
+
+
+
+
+
+var logInSpan = document.getElementById("login-span");
+
+    span.onclick = function(){
+ subContainer.classList.toggle('flip');
+    signInContainer.style.display = 'grid';
+    //  container.style.height = '450px';
+    };
+  
+      // Flip to Login page in responsive design
+
+
+      var signInSpan = document.getElementById("signin-span");
+
+    spans.onclick = function(){
+ subContainer.classList.toggle('flip');
+    logInContainer.style.display = 'grid';
+    signInContainer.style.display = 'grid';
+        //  container.style.height = '400px';
+    };
