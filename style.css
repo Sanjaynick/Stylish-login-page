@@ -211,6 +211,10 @@ body{
     box-shadow: inset 1px 4px 10px 2px rgba(0 ,0 ,0 ,0.5);
 }
 
+.message-container{
+    display: none;
+}
+
 #error-msg-2{
     display: none;
     /* color: beige; */
@@ -370,6 +374,64 @@ body{
   display: none;
 }
 
+
+
+.message-container{
+    position: absolute;
+    background-color: white;
+    padding: 20px;
+     box-shadow: 1px 4px 10px 2px rgba(0 ,0 ,0 ,0.5);
+     background: beige;
+     border-radius: 10px;
+     z-index: 1;
+     display: none;
+}
+
+.message-container form{
+    display: grid;
+      gap: 20px;
+}
+
+.sub-message-container{
+    display: none;
+}
+
+.sub-verification-container{
+    display: none;
+}
+
+.sub-repassword-container{
+    display: none;
+}
+.message-container input{
+       padding: 10px 15px;
+     box-shadow: inset 1px 4px 10px 2px rgba(0 ,0 ,0 ,0.5);
+     border: none;
+     outline: none;
+     border-radius: 10px;
+     text-align: center;
+     font-size: 18px;
+}
+
+.message-container button{
+    padding: 10px 20px;
+    background-color: #00BFFF;
+    border: none;
+    outline: none;
+     color: white;
+    font-size: 18px;
+     box-shadow: 1px 4px 10px 2px rgba(0 ,0 ,0 ,0.5);
+     border-radius: 10px;
+     cursor: pointer;
+}
+
+.message-container button:hover{
+    box-shadow: inset 1px 4px 10px 2px rgba(0 ,0 ,0 ,0.5);
+}
+
+.message-container{
+    display: none;
+}
 
 
 
