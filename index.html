@@ -7,6 +7,36 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="message-container" id="message-container">
+        <div class="sub-message-container" id="sub-message-container">
+        <form>
+        <h2>Enter Your Email For Verification</h2>
+        <input type="text" placeholder="Enter Your Email" id="forgot-email">
+        <button type="submit" class="forgot-submit" onclick="showVerification()">Submit</button>
+        <button onclick="cancelShowForgot()">Cancel</button>
+        </form>
+        </div>
+
+        <div class="sub-verification-container" id="sub-verification-container">
+        <form>
+        <h2>Enter Verification Code</h2>
+        <input type="text" placeholder="000 000 000" id="verification-code">
+        <button type="submit" class="forgot-submit" onclick="showRePassword()">Submit</button>
+        <button onclick="cancelShowForgot()">Cancel</button>
+        </form>
+        </div>
+
+        <div class="sub-repassword-container" id="sub-repassword-container">
+        <form>
+        <h2>Enter Your New Password</h2>
+        <input type="password" placeholder="Enter New Password" id="new-psw">
+        <input type="password" placeholder="Re Enter New Password" id="re-new-psw">
+        <button type="submit" class="forgot-submit" onclick="rePasswordFinish()">Submit</button>
+        <button onclick="cancelShowForgot()">Cancel</button>
+        </form>
+        </div>
+
+    </div>
     <p class="error-msg-2" id="error-msg-2"></p>
     <div class="container" id="container">
         <div class="sub-container" id="sub-container">
@@ -16,7 +46,7 @@
                 
                 <input type="text" placeholder="Enter Email" id="email" required>
                 <input type="password" placeholder="Enter Password" required>
-                <h3><a href="#">Forgot Password</a></h3>
+                <h3><a href="#" onclick="showForgot()">Forgot Password</a></h3>
                 <div class="word" id="word"></div>
                 <button type="submit">Log In</button>
                 

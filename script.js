@@ -14,15 +14,56 @@ var userEmail = document.getElementById('user-email');
 var userPassword = document.getElementById('user-password');
 var newPassword = document.getElementById('new-password');
 var container = document.getElementById("container");
+var messageContainer = document.getElementById("message-container");
+var subMessageContainer = document.getElementById("sub-message-container");
+var subVerificationContainer = document.getElementById("sub-verification-container");
+var subRepasswordContainer = document.getElementById("sub-repassword-container");
+
+
+function showForgot(){
+    messageContainer.style.display = 'block';
+    subMessageContainer.style.display = 'block';
+    subVerificationContainer.style.display = 'none';
+    subRepasswordContainer.style.display = 'none';
+}
+
+function cancelShowForgot(){
+     messageContainer.style.display = 'none';
+    subMessageContainer.style.display = 'none';
+    subVerificationContainer.style.display = 'none';
+    subRepasswordContainer.style.display = 'none';
+}
+
+function showVerification(){
+     messageContainer.style.display = 'block';
+    subMessageContainer.style.display = 'none';
+    subVerificationContainer.style.display = 'block';
+    subRepasswordContainer.style.display = 'none';
+}
+
+function showRePassword(){
+     messageContainer.style.display = 'block';
+    subMessageContainer.style.display = 'none';
+    subVerificationContainer.style.display = 'none';
+    subRepasswordContainer.style.display = 'block';
+}
+
+function rePasswordFinish(){
+    messageContainer.style.display = 'none';
+    subMessageContainer.style.display = 'none';
+    subVerificationContainer.style.display = 'none';
+    subRepasswordContainer.style.display = 'none';
+    alert("Your Password Changed Successfully");
+}
 
 function showError(){
     errorMessage.style.display = 'block';
    
 }
 
-function showErrorMsg(){
-     errorMsg.style.display = 'block';
-}
+// function showErrorMsg(){
+//      errorMsg.style.display = 'block';
+// }
 
  sliderBtn.textContent = "Sign In";
 
@@ -65,34 +106,50 @@ function changeSlider(){
 var emailCheck = /^[^ ]+@[^ ]+\.[a-z]{2,}$/i;
 
 function formValidation(){
-    if(email.value == ''){
-        errorMsg.style.display = 'none';
-    }
-else if(!emailCheck.test(email.value.trim())){
+    // if(email.value == ''){
+    //     errorMsg.style.display = 'none';
+    // }
+ if(!emailCheck.test(email.value.trim())){
     errorMessage.textContent = "Please Enter Valid Email !";
     errorMsg.textContent = "Please Enter Valid Email !";
-    showError()
-    showErrorMsg();
+    showError();
+    if(window.innerWidth < 500){
+            errorMsg.style.display = 'block';
+    }
+    else{
+         errorMsg.style.display = 'none';
+    }
+
     allClear();
     return false;
 }
 else{
     errorMessage.textContent = '';
     errorMsg.textContent = '';
+    errorMessage.style.display = 'none';
     alert("You Logged In Successfully");
     allClear()
 } 
 }
 
-// var emailCheck = /^[^ ]+@[^ ]+\.[a-z]{2,}$/i;
 
 function formValidationSecond(){
+
+    // if(userName.value == ''){
+    //     errorMsg.style.display = 'none';
+    //     errorMsg.textContent = '';
+    // }
 
     if(userName.value.trim().length < 3){
     errorMessage.textContent = "Please Enter Name More than 3 letters";
     errorMsg.textContent = "Please Enter Name More than 3 letters"
     showError();
-    showErrorMsg();
+    if(window.innerWidth < 500){
+            errorMsg.style.display = 'block';
+    }
+    else{
+         errorMsg.style.display = 'none';
+    }
     return false;
 }
 
@@ -100,7 +157,12 @@ function formValidationSecond(){
     errorMessage.textContent = "Please Enter Valid Email !";
     errorMsg.textContent = "Please Enter Valid Email !"
     showError();
-    showErrorMsg();
+    if(window.innerWidth < 500){
+            errorMsg.style.display = 'block';
+    }
+    else{
+         errorMsg.style.display = 'none';
+    }
     return false;
 }
 
@@ -108,7 +170,12 @@ if(userPassword.value.trim().length < 6){
     errorMessage.textContent = "Password Must Contain 6 Letters";
     errorMsg.textContent = "Password Must Contain 6 Letters"
     showError();
-    showErrorMsg();
+    if(window.innerWidth < 500){
+            errorMsg.style.display = 'block';
+    }
+    else{
+         errorMsg.style.display = 'none';
+    }
     return false;
 }
 
@@ -116,30 +183,26 @@ if(userPassword.value.trim() != newPassword.value.trim()){
     errorMessage.textContent = "Password Not Match";
     errorMsg.textContent = "Password Not Match";
     showError();
-    showErrorMsg();
+    if(window.innerWidth < 500){
+            errorMsg.style.display = 'block';
+    }
+    else{
+         errorMsg.style.display = 'none';
+    }
     return false;
 }
     errorMessage.textContent = '';
     alert("You Signed In Successfully");
     allClear();
+    errorMsg.textContent = '';
+     errorMessage.style.display = 'none';
     return true;
     
 }
 
                         // Script For Responsive mobile screen 
 
-// var container = document.getElementById("container");
-// var rotate = document.getElementById("rotate");
-
-// function containerRotate(){
-//         container.classList.toggle('flip');
-//          signInContainer.style.display = 'grid';
-//         logInContainer.style.display = 'grid';
-//         // container.style.height = '350px';
-
-// }
-
-        //   Adding p tag to login page
+                //   Adding p tag to login page
 
 var word = document.getElementById("word");
  var p = document.createElement('p');
@@ -155,16 +218,15 @@ function adding(){
         word.appendChild(p);
         word.appendChild(span);
           loginMessageAdded = true;
-          formValidation();
+          
     }
     else if(window.innerWidth > 500 && loginMessageAdded){
           var newPara = document.getElementById("new-p");
-          var newSpan = document.getElementById("login-span");
+          var newSpan = document.getElementById("login-span");      
         if(newPara && newSpan){   
             newPara.remove();
             newSpan.remove();
-               loginMessageAdded = false;
-               formValidationSecond();
+               loginMessageAdded = false; 
         }
     }
     }
@@ -185,6 +247,7 @@ function adding(){
  let messageAdded = false;
 
 function addingFlip(){
+
     if(window.innerWidth <= 500 && !messageAdded){  
         pa.innerHTML = `Already have an account ` ;
         spans.innerHTML = `Log In`;
@@ -195,10 +258,11 @@ function addingFlip(){
     else if(window.innerWidth > 500 && messageAdded){
           var newParas = document.getElementById("new-pa");
           var newSpans = document.getElementById("signin-span");
+           errorMsg.style.display = 'none';
         if(newParas && newSpans){   
             newParas.remove();
             newSpans.remove();
-               messageAdded = false;
+               messageAdded = false;  
         }
     }
     }
@@ -219,7 +283,7 @@ var logInSpan = document.getElementById("login-span");
     span.onclick = function(){
  subContainer.classList.toggle('flip');
     signInContainer.style.display = 'grid';
-    //  container.style.height = '450px';
+    //  errorMsg.style.display = 'none';
     };
   
       // Flip to Login page in responsive design
@@ -231,5 +295,5 @@ var logInSpan = document.getElementById("login-span");
  subContainer.classList.toggle('flip');
     logInContainer.style.display = 'grid';
     signInContainer.style.display = 'grid';
-        //  container.style.height = '400px';
+        //  errorMsg.style.display = 'none';
     };
