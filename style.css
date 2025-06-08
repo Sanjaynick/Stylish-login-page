@@ -6,6 +6,7 @@
      font-family: "Oswald", sans-serif;
 }
 
+
 body{
     background-color: beige;
     display: flex;
@@ -218,6 +219,33 @@ body{
 #error-msg-2{
     display: none;
     /* color: beige; */
+}
+
+.forgot-process{
+    text-align: center;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    display: none;
+}
+
+.forgot-code{
+    text-align: center;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    display: none;
+}
+
+.forgot-repassword{
+    text-align: center;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    display: none;
 }
 
                   /* Animation Starts Here */
@@ -433,6 +461,17 @@ body{
     display: none;
 }
 
+.message-container{
+    position: absolute;
+    width: 200px;
+    background-color: white;
+    padding: 20px;
+     box-shadow: 1px 4px 10px 2px rgba(0 ,0 ,0 ,0.5);
+     background: beige;
+     border-radius: 10px;
+     z-index: 1;
+     display: none;
+}
 
 
 }

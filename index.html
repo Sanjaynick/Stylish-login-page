@@ -5,33 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
     <div class="message-container" id="message-container">
         <div class="sub-message-container" id="sub-message-container">
-        <form>
+        <form onsubmit="forgotPassword()">
+            <p class="forgot-process" id="forgot-process">Enter Valid Email !</p>
         <h2>Enter Your Email For Verification</h2>
-        <input type="text" placeholder="Enter Your Email" id="forgot-email">
-        <button type="submit" class="forgot-submit" onclick="showVerification()">Submit</button>
+        <input type="text" placeholder="Enter Your Email" id="forgot-email" required>
+        <button type="submit" class="forgot-submit" >Submit</button>
         <button onclick="cancelShowForgot()">Cancel</button>
         </form>
         </div>
 
         <div class="sub-verification-container" id="sub-verification-container">
-        <form>
+        <form onsubmit="forgotVerification()">
+            <p class="forgot-code" id="forgot-code"></p>
         <h2>Enter Verification Code</h2>
-        <input type="text" placeholder="000 000 000" id="verification-code">
-        <button type="submit" class="forgot-submit" onclick="showRePassword()">Submit</button>
+        <input type="number" placeholder="000 000 000" id="verification-code" required>
+        <button type="submit" class="forgot-submit">Submit</button>
         <button onclick="cancelShowForgot()">Cancel</button>
         </form>
         </div>
 
         <div class="sub-repassword-container" id="sub-repassword-container">
-        <form>
+        <form onsubmit="reEnterPassword()">
+            <p class="forgot-repassword" id="forgot-repassword"></p>
         <h2>Enter Your New Password</h2>
-        <input type="password" placeholder="Enter New Password" id="new-psw">
-        <input type="password" placeholder="Re Enter New Password" id="re-new-psw">
-        <button type="submit" class="forgot-submit" onclick="rePasswordFinish()">Submit</button>
+        <input type="password" placeholder="Enter New Password" id="new-psw" required>
+        <input type="password" placeholder="Re Enter New Password" id="re-new-psw" required>
+        <button type="submit" class="forgot-submit">Submit</button>
         <button onclick="cancelShowForgot()">Cancel</button>
         </form>
         </div>
@@ -45,7 +49,7 @@
                 <h3>LOG IN</h3>
                 
                 <input type="text" placeholder="Enter Email" id="email" required>
-                <input type="password" placeholder="Enter Password" required>
+                <input type="password" placeholder="Enter Password" required >
                 <h3><a href="#" onclick="showForgot()">Forgot Password</a></h3>
                 <div class="word" id="word"></div>
                 <button type="submit">Log In</button>

@@ -18,13 +18,67 @@ var messageContainer = document.getElementById("message-container");
 var subMessageContainer = document.getElementById("sub-message-container");
 var subVerificationContainer = document.getElementById("sub-verification-container");
 var subRepasswordContainer = document.getElementById("sub-repassword-container");
+var forgotProcess = document.getElementById("forgot-process");
+var verificationCode = document.getElementById("verification-code");
+var forgotEmail = document.getElementById("forgot-email");
+var forgotCode = document.getElementById("forgot-code");
+var forgotRePassword = document.getElementById("forgot-repassword");
+var newPsw = document.getElementById("new-psw");
+var reNewPsw =document.getElementById("re-new-psw"); 
 
 
-function showForgot(){
-    messageContainer.style.display = 'block';
-    subMessageContainer.style.display = 'block';
-    subVerificationContainer.style.display = 'none';
-    subRepasswordContainer.style.display = 'none';
+var checkEmail = /^[^ ]+@[^ ]+\.[a-z]{2,}$/i;
+
+function forgotPassword(){
+    if(!checkEmail.test(forgotEmail.value.trim())){
+        forgotProcess.textContent = "Please Enter Valid Email !"
+        forgotProcess.style.display = 'block';
+        // subMessageContainer.style.display = 'none';
+        //  subVerificationContainer.style.display = 'block';
+    }
+    else{
+        forgotProcess.style.display = 'none';
+        subMessageContainer.style.display = 'none';
+         subVerificationContainer.style.display = 'block';
+    }
+    allClear();
+    return false;
+}
+
+function forgotVerification(){
+    if(verificationCode.value.trim().length < 6){
+        forgotCode.textContent = "Verification Code must be 6 Numbers";
+        forgotCode.style.display = 'block';
+    }
+    else{
+        forgotCode.style.display = 'none';
+        subMessageContainer.style.display = 'none';
+         subVerificationContainer.style.display = 'none';
+          subRepasswordContainer.style.display = 'block';
+    }
+    allClear();
+    return false;
+}
+
+function reEnterPassword(){
+    if(newPsw.value.trim().length < 6){
+        forgotRePassword.textContent = "Password must be 6 Numbers";
+        forgotRePassword.style.display = 'block';
+    }
+   else if(newPsw.value != reNewPsw.value){
+         forgotRePassword.textContent = "Password Not Match";
+        forgotRePassword.style.display = 'block';
+    }
+    else{
+        forgotRePassword.style.display = 'none';
+        subMessageContainer.style.display = 'none';
+         subVerificationContainer.style.display = 'none';
+          subRepasswordContainer.style.display = 'none';
+           messageContainer.style.display = 'none';
+          alert("Your Password Changed Successfully")
+    }
+    allClear();
+    return false;
 }
 
 function cancelShowForgot(){
@@ -34,27 +88,37 @@ function cancelShowForgot(){
     subRepasswordContainer.style.display = 'none';
 }
 
-function showVerification(){
-     messageContainer.style.display = 'block';
-    subMessageContainer.style.display = 'none';
-    subVerificationContainer.style.display = 'block';
+
+function showForgot(){
+    messageContainer.style.display = 'block';
+    subMessageContainer.style.display = 'block';
+    subVerificationContainer.style.display = 'none';
     subRepasswordContainer.style.display = 'none';
 }
 
-function showRePassword(){
-     messageContainer.style.display = 'block';
-    subMessageContainer.style.display = 'none';
-    subVerificationContainer.style.display = 'none';
-    subRepasswordContainer.style.display = 'block';
-}
 
-function rePasswordFinish(){
-    messageContainer.style.display = 'none';
-    subMessageContainer.style.display = 'none';
-    subVerificationContainer.style.display = 'none';
-    subRepasswordContainer.style.display = 'none';
-    alert("Your Password Changed Successfully");
-}
+
+// function showVerification(){
+//      messageContainer.style.display = 'block';
+//     subMessageContainer.style.display = 'none';
+//     subVerificationContainer.style.display = 'block';
+//     subRepasswordContainer.style.display = 'none';
+// }
+
+// function showRePassword(){
+//      messageContainer.style.display = 'block';
+//     subMessageContainer.style.display = 'none';
+//     subVerificationContainer.style.display = 'none';
+//     subRepasswordContainer.style.display = 'block';
+// }
+
+// function rePasswordFinish(){
+//     messageContainer.style.display = 'none';
+//     subMessageContainer.style.display = 'none';
+//     subVerificationContainer.style.display = 'none';
+//     subRepasswordContainer.style.display = 'none';
+//     alert("Your Password Changed Successfully");
+// }
 
 function showError(){
     errorMessage.style.display = 'block';
